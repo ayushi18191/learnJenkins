@@ -4,7 +4,7 @@
 node {
    echo "Docker path"
    echo "Free memory:"
-stage('SampleTryCatch') {
+/*stage('SampleTryCatch') {
     try {
       sh 'exit 1'
     }
@@ -12,5 +12,5 @@ stage('SampleTryCatch') {
       echo 'Something didn't work and got some exceptions'
       throw
     }
-}
+}*/
 }
