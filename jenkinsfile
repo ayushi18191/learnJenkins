@@ -12,5 +12,5 @@ stage('SampleTryCatch') {
       echo 'Something didn't work and got some exceptions'
       throw
     }
-
+}
 }
