@@ -2,15 +2,14 @@
 // Some fast steps to inspect the build server. Create a pipeline script job and add this:
 
 node {
-   echo "Docker path"
-   echo "Free memory:"
-/*stage('SampleTryCatch') {
-    try {
-      sh 'exit 1'
-    }
-    catch (exc) {
-      echo 'Something didn't work and got some exceptions'
-      throw
-    }
-}*/
+   echo "stage 1"
+   stage('stage 1') {
+   
+      echo('inside stage 1')
+   }
+    stage('stage 2') {
+   
+      echo('inside stage 2')
+   }
+
 }
