@@ -1,0 +1,7 @@
+src/classes/EmailToCaseWFMQueue.cls
+src/classes/EmailToCaseWFMQueueTest.cls
+src/components/CCO_ScheduleACall_AwsFileUploadAgent.component
+src/components/CaseManagement_AwsFileUploadAgent_Aura.component
+src/classes/Case_Clone_Controller.cls
+src/classes/CasePreFormController.cls
+src/pages/CasePreForm.page
