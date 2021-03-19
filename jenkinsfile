@@ -7,7 +7,7 @@ node {
  bmFilePath = 'Subdocs/BuildManifestFile.txt'
  echo "${WORKSPACE}"
  echo "${environment}"
- withCredentials([[$class: 'UsernamePasswordMultiBinding',credentialsId: 'GitTest', usernameVariable: 'GITUSERNAME', passwordVariable: 'GITPASSWORD']]) {
+ withCredentials([[$class: 'UsernamePasswordMultiBinding',credentialsId: 'b077dd29-4ae0-4dee-87a2-fa869e258022', usernameVariable: 'GITUSERNAME', passwordVariable: 'GITPASSWORD']]) {
         sh """
             echo "${WORKSPACE}"
             chmod -R 775 ${WORKSPACE}
