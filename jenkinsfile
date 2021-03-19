@@ -5,10 +5,7 @@ node {
    stage("Initiate Pipeline"){
          environment = "dev"
  bmFilePath = 'Subdocs/BuildManifestFile.txt'
- sh """
-            sudo chown -R jenkins:jenkins .
-    """
- deleteDir()
+  deleteDir()
  echo "${WORKSPACE}"
  echo "${environment}"
  withCredentials([[credentialsId: 'GitTest', usernameVariable: 'GITUSERNAME', passwordVariable: 'GITPASSWORD']]) {
