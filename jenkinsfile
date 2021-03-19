@@ -1,1 +1,14 @@
-test
+node {
+   echo "GetSourceCode started"
+   stage('GetSourceCode') {
+   }
+    echo "Build Package started"
+    stage('Build Package') {
+   }
+   echo "deployORValidatePackage started"
+   stage('deployORValidatePackage') {
+   }
+    echo "Merge started"
+   stage('Merge') {
+   }
+}
