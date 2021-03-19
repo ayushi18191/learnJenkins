@@ -1,7 +1,38 @@
 #!/usr/bin/env groovy
 // Some fast steps to inspect the build server. Create a pipeline script job and add this:
-
+echo ("Initiate Pipeline started")
 node {
+   stage("Initiate Pipeline"){
+         environment = "dev"
+ bmFilePath = 'Subdocs/BuildManifestFile.txt'
+ sh """
+            sudo chown -R jenkins:jenkins .
+    """
+ deleteDir()
+ echo "${WORKSPACE}"
+ echo "${environment}"
+ withCredentials([[credentialsId: 'GitTest', usernameVariable: 'GITUSERNAME', passwordVariable: 'GITPASSWORD']]) {
+        sh """
+            echo "${WORKSPACE}"
+            chmod -R 775 ${WORKSPACE}
+            mkdir -p TestJenkins && cd TestJenkins
+            git clone --depth 1 https://${env.GITUSERNAME}:${env.GITPASSWORD}@https://github.com/ayushi18191/learnJenkins.git -b main
+        """
+    }
+ sh """
+        if [ -f  "${WORKSPACE}/Subdocs/${release}/BuildComponents/${bmFileName}".txt ]
+        then
+        cp -R "${WORKSPACE}/Subdocs/${release}/BuildComponents/${bmFileName}".txt "${WORKSPACE}"
+        else 
+        echo "Build Manifest File does not exist in the repository"
+        exit 1
+        fi
+    """
+ sh """
+        sed -e '/eslintrc.json/d' -e '/-meta.xml/d' ./BuildManifest.txt > ./BuildManifestTemp.txt
+        cp -r ./BuildManifestTemp.txt ./BuildManifest.txt
+        rm ./BuildManifestTemp.txt
+    """}
    echo "GetSourceCode started"
    stage('GetSourceCode') {
    }
