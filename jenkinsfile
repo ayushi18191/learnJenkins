@@ -5,7 +5,6 @@ node {
    stage("Initiate Pipeline"){
          environment = "dev"
  bmFilePath = 'Subdocs/BuildManifestFile.txt'
-  deleteDir()
  echo "${WORKSPACE}"
  echo "${environment}"
  withCredentials([[credentialsId: 'GitTest', usernameVariable: 'GITUSERNAME', passwordVariable: 'GITPASSWORD']]) {
